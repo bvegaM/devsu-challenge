@@ -1,0 +1,27 @@
+version: '2.1'
+volumes:
+  postgres-data:
+
+services:
+  srvdb:
+    image: postgres
+    container_name: srvdb
+    hostname: srvdb
+    environment:
+      POSTGRES_USER: devsu
+      POSTGRES_DB: devsu
+      POSTGRES_PASSWORD: devsu.123
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "devsu", "-U", "devsu" ]
+      interval: 10s
+      timeout: 60s
+      retries: 1
+    networks:
+      - devsu-network
+networks:
+  devsu-network:
+    driver: bridge

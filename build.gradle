@@ -1,0 +1,56 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.0.6'
+    id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'com.devsu'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    swaggerVersion = "2.9.2"
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.jetbrains:annotations:24.0.0'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    //lombook
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    //validations
+    implementation 'org.springframework.boot:spring-boot-starter-validation:2.7.2'
+
+    //bean utils
+    implementation 'commons-beanutils:commons-beanutils:1.9.4'
+
+    //logs
+    implementation 'org.apache.logging.log4j:log4j-api:2.20.0'
+    implementation 'org.apache.logging.log4j:log4j-core:2.20.0'
+
+    //database
+    runtimeOnly 'org.postgresql:postgresql'
+
+    //mapping models
+    implementation "org.mapstruct:mapstruct:1.4.2.Final"
+    annotationProcessor "org.mapstruct:mapstruct-processor:1.4.2.Final"
+
+    //swagger
+    implementation "io.springfox:springfox-swagger2:${swaggerVersion}"
+    implementation "io.springfox:springfox-swagger-ui:${swaggerVersion}"
+
+    //junit
+    implementation 'junit:junit:4.13.2'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
