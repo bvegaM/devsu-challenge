@@ -1,4 +1,4 @@
-version: '2.1'
+version: '3.6'
 volumes:
   postgres-data:
 
@@ -17,12 +17,26 @@ services:
     ports:
       - 5432:5432
     healthcheck:
-      test: [ "CMD", "pg_isready", "-q", "-d", "devsu", "-U", "devsu" ]
+      test: ["CMD", "pg_isready", "-U", "devsu"]
       interval: 10s
-      timeout: 60s
-      retries: 1
+      retries: 5
     networks:
       - devsu-network
+
+  devsu-challenge:
+    image: devsu:latest
+    build: ./devsu
+    container_name: devsu
+    environment:
+      - devsu.datasource.host=srvdb:5432
+    depends_on:
+      srvdb:
+        condition: service_healthy
+    networks:
+      - devsu-network
+    ports:
+      - 8080:8080
+
 networks:
   devsu-network:
     driver: bridge

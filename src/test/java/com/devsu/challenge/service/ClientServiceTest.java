@@ -7,7 +7,7 @@ import com.devsu.challenge.repository.ClientRepository;
 import com.devsu.challenge.service.interfaces.ClientService;
 import com.devsu.challenge.utils.enums.GenreEnum;
 import com.devsu.challenge.utils.exceptions.DevsuException;
-import jakarta.validation.ConstraintViolationException;
+import javax.validation.ConstraintViolationException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
