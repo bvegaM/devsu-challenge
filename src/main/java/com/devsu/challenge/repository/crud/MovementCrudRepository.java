@@ -2,7 +2,7 @@ package com.devsu.challenge.repository.crud;
 
 import com.devsu.challenge.model.Movement;
 import com.devsu.challenge.utils.enums.MovementTypeEnum;
-import jakarta.persistence.LockModeType;
+import javax.persistence.LockModeType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Lock;
 

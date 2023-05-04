@@ -8,7 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
@@ -21,8 +21,8 @@ public class MovementDTO {
     private BigDecimal saldoInicial;
     private BigDecimal saldoDisponible;
     private BigDecimal movimiento;
-    @JsonFormat(pattern="yyy-MM-dd")
-    private Date fechaMovimiento;
+    @JsonFormat(pattern="yyy-MM-dd hh:mm:ss")
+    private LocalDateTime fechaMovimiento;
     private String clienteCedula;
     private Boolean estado;
 }

@@ -1,8 +1,8 @@
 package com.devsu.challenge.model;
 
 import com.devsu.challenge.utils.enums.GenreEnum;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
+import javax.persistence.*;
+import javax.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

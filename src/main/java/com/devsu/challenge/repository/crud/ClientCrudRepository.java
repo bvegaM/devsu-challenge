@@ -1,8 +1,8 @@
 package com.devsu.challenge.repository.crud;
 
 import com.devsu.challenge.model.Client;
-import jakarta.persistence.LockModeType;
-import jakarta.transaction.Transactional;
+import javax.persistence.LockModeType;
+import javax.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Lock;
 

@@ -1,7 +1,7 @@
 package com.devsu.challenge.model;
 
 import com.devsu.challenge.utils.enums.MovementTypeEnum;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

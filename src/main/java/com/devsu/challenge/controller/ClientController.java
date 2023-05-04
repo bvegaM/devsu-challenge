@@ -5,8 +5,10 @@ import com.devsu.challenge.dto.ClientDTO;
 import com.devsu.challenge.service.interfaces.ClientService;
 import com.devsu.challenge.utils.Constants;
 import com.devsu.challenge.utils.ResponseHandler;
-import jakarta.validation.ConstraintViolation;
-import jakarta.validation.ConstraintViolationException;
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
+
+import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,6 +20,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/clientes")
 @Slf4j
+@Api(tags = "Client API")
 public class ClientController {
 
     @Autowired

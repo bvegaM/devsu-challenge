@@ -5,6 +5,8 @@ import com.devsu.challenge.dto.movement.ReportDTO;
 import com.devsu.challenge.service.interfaces.MovementService;
 import com.devsu.challenge.utils.Constants;
 import com.devsu.challenge.utils.ResponseHandler;
+import io.swagger.annotations.Api;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +15,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/reportes")
+@Slf4j
+@Api(tags = "Report API")
 public class ReportController {
 
     @Autowired
@@ -33,6 +37,7 @@ public class ReportController {
             responseHandler = ResponseHandler.<List<ReportDTO>>builder().code(Constants.BAD_REQUEST.value())
                     .value(null).build();
 
+            log.error("Finished execution method findByAccountNumberAccount with error {}", e.getMessage());
             return new ResponseEntity<>(responseHandler, Constants.BAD_REQUEST);
         }
     }

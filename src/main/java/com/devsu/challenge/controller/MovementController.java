@@ -6,8 +6,11 @@ import com.devsu.challenge.dto.movement.MovementRequestDTO;
 import com.devsu.challenge.service.interfaces.MovementService;
 import com.devsu.challenge.utils.Constants;
 import com.devsu.challenge.utils.ResponseHandler;
-import jakarta.validation.ConstraintViolation;
-import jakarta.validation.ConstraintViolationException;
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
+
+import io.swagger.annotations.Api;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +20,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/movimientos")
+@Slf4j
+@Api(tags = "Movement API")
 public class MovementController {
 
     @Autowired
@@ -35,6 +40,7 @@ public class MovementController {
             responseHandler = ResponseHandler.<List<MovementDTO>>builder().code(Constants.BAD_REQUEST.value())
                     .value(null).build();
 
+            log.error("Finished execution method findAll with error {}", e.getMessage());
             return new ResponseEntity<>(responseHandler, Constants.BAD_REQUEST);
         }
     }
@@ -52,6 +58,7 @@ public class MovementController {
             responseHandler = ResponseHandler.<List<MovementDTO>>builder().code(Constants.BAD_REQUEST.value())
                     .value(null).build();
 
+            log.error("Finished execution method findByAccountNumberAccount with error {}", e.getMessage());
             return new ResponseEntity<>(responseHandler, Constants.BAD_REQUEST);
         }
     }
@@ -69,6 +76,7 @@ public class MovementController {
             responseHandler = ResponseHandler.<List<MovementDTO>>builder().code(Constants.BAD_REQUEST.value())
                     .value(null).build();
 
+            log.error("Finished execution method findByAccountClientDni with error {}", e.getMessage());
             return new ResponseEntity<>(responseHandler, Constants.BAD_REQUEST);
         }
     }
@@ -91,11 +99,13 @@ public class MovementController {
             responseHandler = ResponseHandler.builder().code(HttpStatus.BAD_REQUEST.value())
                     .value(messages).build();
 
+            log.error("Finished execution method save with error  - validation data {}", ev.getMessage());
             return new ResponseEntity<>(responseHandler, Constants.BAD_REQUEST);
         } catch (Exception e){
             responseHandler = ResponseHandler.builder().code(HttpStatus.BAD_REQUEST.value())
                     .value(e.getMessage()).build();
 
+            log.error("Finished execution method save with error {}", e.getMessage());
             return new ResponseEntity<>(responseHandler, Constants.BAD_REQUEST);
         }
     }

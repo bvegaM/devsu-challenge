@@ -1,8 +1,8 @@
 package com.devsu.challenge.dto.movement;
 
 import com.devsu.challenge.utils.enums.MovementTypeEnum;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -14,7 +14,7 @@ import com.devsu.challenge.utils.Constants;
 import com.devsu.challenge.utils.Util;
 import com.devsu.challenge.utils.enums.MovementTypeEnum;
 import com.devsu.challenge.utils.exceptions.DevsuException;
-import jakarta.validation.ConstraintViolationException;
+import javax.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
