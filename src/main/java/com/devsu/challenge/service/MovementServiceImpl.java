@@ -51,8 +51,8 @@ public class MovementServiceImpl implements MovementService {
             Optional<List<Movement>> movementList = movementRepository.findAll();
             return movementMapper.toMovementDtos(movementList.orElseGet(ArrayList::new));
         }catch (Exception e){
-            log.error("Error en el AccountServiceImpl.findAll");
-            throw new DevsuException("Error en AccountServiceImpl.findAll",e);
+            log.error("Error en el MovementServiceImpl.findAll");
+            throw new DevsuException("Error en MovementServiceImpl.findAll",e);
         }
     }
 
@@ -62,8 +62,8 @@ public class MovementServiceImpl implements MovementService {
             Optional<List<Movement>> movementList = movementRepository.findMovementsByAccountNumberAccount(numberAccount);
             return movementMapper.toMovementDtos(movementList.orElseGet(ArrayList::new));
         }catch (Exception e){
-            log.error("Error en el AccountServiceImpl.findMovementsByAccountNumberAccount");
-            throw new DevsuException("Error en AccountServiceImpl.findMovementsByAccountNumberAccount",e);
+            log.error("Error en el MovementServiceImpl.findMovementsByAccountNumberAccount");
+            throw new DevsuException("Error en MovementServiceImpl.findMovementsByAccountNumberAccount",e);
         }
     }
 
@@ -73,8 +73,8 @@ public class MovementServiceImpl implements MovementService {
             Optional<List<Movement>> movementList = movementRepository.findMovementsByAccountClientDni(dni);
             return movementMapper.toMovementDtos(movementList.orElseGet(ArrayList::new));
         }catch (Exception e){
-            log.error("Error en el AccountServiceImpl.findMovementsByAccountClientDni");
-            throw new DevsuException("Error en AccountServiceImpl.findMovementsByAccountClientDni",e);
+            log.error("Error en el MovementServiceImpl.findMovementsByAccountClientDni");
+            throw new DevsuException("Error en MovementServiceImpl.findMovementsByAccountClientDni",e);
         }
     }
 
@@ -85,8 +85,8 @@ public class MovementServiceImpl implements MovementService {
                     Util.convertStringToDate(endDate));
             return reportMapper.toReportDtos(movementList.orElseGet(ArrayList::new));
         }catch (Exception e){
-            log.error("Error en el AccountServiceImpl.findMovementsByAccountClientDni");
-            throw new DevsuException("Error en AccountServiceImpl.findMovementsByAccountClientDni",e);
+            log.error("Error en el MovementServiceImpl.findMovementsByAccountClientDni");
+            throw new DevsuException("Error en MovementServiceImpl.findMovementsByAccountClientDni",e);
         }
     }
 
@@ -96,8 +96,8 @@ public class MovementServiceImpl implements MovementService {
             movementRepository.deleteById(id);
             return Boolean.TRUE;
         }catch (Exception e){
-            log.error("Error en el AccountServiceImpl.deleteById");
-            throw new DevsuException("Error en AccountServiceImpl.deleteById",e);
+            log.error("Error en el MovementServiceImpl.deleteById");
+            throw new DevsuException("Error en MovementServiceImpl.deleteById",e);
         }
     }
 
@@ -115,10 +115,10 @@ public class MovementServiceImpl implements MovementService {
             }
             return movementDTO;
         }catch (ConstraintViolationException ev){
-            log.error("Error en el AccountServiceImpl.save - validacion de datos");
+            log.error("Error en el MovementServiceImpl.save - validacion de datos");
             throw ev;
         }catch (Exception e){
-            log.error("Error en el AccountServiceImpl.save");
+            log.error("Error en el MovementServiceImpl.save");
             throw new DevsuException(e.getMessage(),e);
         }
     }
@@ -152,10 +152,10 @@ public class MovementServiceImpl implements MovementService {
 
             return movementMapper.toMovementDto(movement);
         }catch (ConstraintViolationException ev){
-            log.error("Error en el AccountServiceImpl.realizarDebito - validacion de datos");
+            log.error("Error en el MovementServiceImpl.realizarDebito - validacion de datos");
             throw ev;
         }catch (Exception e){
-            log.error("Error en el AccountServiceImpl.realizarDebito");
+            log.error("Error en el MovementServiceImpl.realizarDebito");
             throw e;
         }
     }
@@ -192,10 +192,10 @@ public class MovementServiceImpl implements MovementService {
 
             return movementMapper.toMovementDto(movement);
         }catch (ConstraintViolationException ev){
-            log.error("Error en el AccountServiceImpl.realizarCredito - validacion de datos");
+            log.error("Error en el MovementServiceImpl.realizarCredito - validacion de datos");
             throw ev;
         }catch (Exception e){
-            log.error("Error en el AccountServiceImpl.realizarCredito");
+            log.error("Error en el MovementServiceImpl.realizarCredito");
             throw e;
         }
     }

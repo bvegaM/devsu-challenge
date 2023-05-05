@@ -21,7 +21,7 @@ public class MovementDTO {
     private BigDecimal saldoInicial;
     private BigDecimal saldoDisponible;
     private BigDecimal movimiento;
-    @JsonFormat(pattern="yyy-MM-dd hh:mm:ss")
+    @JsonFormat(pattern="yyy-MM-dd")
     private LocalDateTime fechaMovimiento;
     private String clienteCedula;
     private Boolean estado;
